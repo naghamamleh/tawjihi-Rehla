@@ -2,37 +2,50 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>بداية النهاية - توجيهي رحلة</title>
 
 <style>
 
 body{
-margin:0;
+background:#0f1117;
+color:white;
 font-family:Arial;
-background:#f5f5f5;
 display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-text-align:center;
 flex-direction:column;
-}
-
-img{
-width:320px;
-max-width:90%;
-margin-bottom:20px;
+align-items:center;
+justify-content:center;
+height:100vh;
+margin:0;
+text-align:center;
 }
 
 h1{
+margin-bottom:40px;
 font-size:28px;
-margin-bottom:10px;
 }
 
-#countdown{
-font-size:35px;
+.timer{
+display:flex;
+gap:30px;
+}
+
+.box{
+background:#1a1d24;
+padding:30px;
+border-radius:12px;
+min-width:110px;
+}
+
+.number{
+font-size:55px;
 font-weight:bold;
-color:#1a3d2f;
+}
+
+.label{
+margin-top:10px;
+font-size:18px;
+color:#bbb;
 }
 
 </style>
@@ -40,33 +53,50 @@ color:#1a3d2f;
 
 <body>
 
-<img src="logo.png">
+<h1>🔥 بداية النهاية - توجيهي رحلة</h1>
 
-<h1>بداية النهاية - توجيهي رحلة ❤️‍🔥</h1>
+<div class="timer">
 
-<div id="countdown"></div>
+<div class="box">
+<div id="days" class="number">0</div>
+<div class="label">أيام</div>
+</div>
+
+<div class="box">
+<div id="hours" class="number">0</div>
+<div class="label">ساعات</div>
+</div>
+
+<div class="box">
+<div id="minutes" class="number">0</div>
+<div class="label">دقائق</div>
+</div>
+
+<div class="box">
+<div id="seconds" class="number">0</div>
+<div class="label">ثواني</div>
+</div>
+
+</div>
 
 <script>
 
-var targetDate = new Date("June 20, 2026 00:00:00").getTime();
+var targetDate = new Date("June 20, 2026 09:00:00").getTime();
 
-var timer = setInterval(function(){
+setInterval(function(){
 
 var now = new Date().getTime();
 var distance = targetDate - now;
 
-var days = Math.floor(distance / (1000*60*60*24));
-var hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
-var minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
-var seconds = Math.floor((distance % (1000*60)) / 1000);
+var days = Math.floor(distance / (1000606024));
+var hours = Math.floor((distance % (1000606024)) / (10006060));
+var minutes = Math.floor((distance % (10006060)) / (100060));
+var seconds = Math.floor((distance % (100060)) / 1000);
 
-document.getElementById("countdown").innerHTML =
-days + " يوم " + hours + " ساعة " + minutes + " دقيقة " + seconds + " ثانية";
-
-if(distance < 0){
-clearInterval(timer);
-document.getElementById("countdown").innerHTML = "انتهت الرحلة 🎓";
-}
+document.getElementById("days").innerHTML = days;
+document.getElementById("hours").innerHTML = hours;
+document.getElementById("minutes").innerHTML = minutes;
+document.getElementById("seconds").innerHTML = seconds;
 
 },1000);
 
