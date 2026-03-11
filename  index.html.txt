@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>بداية النهاية - توجيهي رحلة</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#f5f5f5;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+text-align:center;
+flex-direction:column;
+}
+
+img{
+width:320px;
+max-width:90%;
+margin-bottom:20px;
+}
+
+h1{
+font-size:28px;
+margin-bottom:10px;
+}
+
+#countdown{
+font-size:35px;
+font-weight:bold;
+color:#1a3d2f;
+}
+
+</style>
+</head>
+
+<body>
+
+<img src="logo.png">
+
+<h1>بداية النهاية - توجيهي رحلة ❤️‍🔥</h1>
+
+<div id="countdown"></div>
+
+<script>
+
+var targetDate = new Date("June 20, 2026 00:00:00").getTime();
+
+var timer = setInterval(function(){
+
+var now = new Date().getTime();
+var distance = targetDate - now;
+
+var days = Math.floor(distance / (1000*60*60*24));
+var hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+var minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+var seconds = Math.floor((distance % (1000*60)) / 1000);
+
+document.getElementById("countdown").innerHTML =
+days + " يوم " + hours + " ساعة " + minutes + " دقيقة " + seconds + " ثانية";
+
+if(distance < 0){
+clearInterval(timer);
+document.getElementById("countdown").innerHTML = "انتهت الرحلة 🎓";
+}
+
+},1000);
+
+</script>
+
+</body>
+</html>
